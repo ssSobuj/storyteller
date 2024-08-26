@@ -1,22 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Inter, Noto_Sans_Bengali } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../style/css/globals.css";
 import "../style/scss/style.scss";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { AuthProvider } from "@/components/hooks/useAuth";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-const noto_sans = Noto_Sans_Bengali({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  variable: "--font-noto_sans",
   display: "swap",
 });
 
@@ -28,12 +21,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${noto_sans.variable}`}>
-        <AuthProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </AuthProvider>
+      <body className={`${inter.variable}`}>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,36 +1,23 @@
 const Story = require("../models/Story");
 
 const createStory = async (req, res) => {
-  const { title, author, content, options } = req.body;
+  console.log("Received data:", req.body); // Log the received data
+  const { id, title, author } = req.body;
 
-  if (!title || !author || !content || !options) {
-    return res
-      .status(400)
-      .json({ error: "Missing required fields or invalid data format." });
+  // Basic validation
+  if (!id || !title || !author) {
+    console.log("Missing required fields:", { id, title, author }); // Log which fields are missing
+    return res.status(400).json({
+      error: "Missing required fields: id, title, and author are required.",
+    });
   }
 
   try {
-    const story = new Story({
-      title,
-      author,
-      content,
-      options: options.map((option) => ({
-        option: option.option,
-        content: option.content,
-        subOptions: option.subOptions.map((subOption) => ({
-          subOption: subOption.subOption,
-          subContent: subOption.subContent,
-          subSubOptions: subOption.subSubOptions.map((subSubOption) => ({
-            subSubOption: subSubOption.subSubOption,
-            subSubContent: subSubOption.subSubContent,
-          })),
-        })),
-      })),
-    });
-
+    const story = new Story(req.body); // Since all other fields are optional, you can pass req.body directly
     await story.save();
     res.status(201).json(story);
   } catch (error) {
+    console.error("Error saving story:", error.message);
     res.status(400).json({ error: error.message });
   }
 };

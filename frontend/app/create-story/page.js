@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function CreateStory() {
   const [story, setStory] = useState({
+    id: Date.now(),
     title: "",
     author: "",
     content: "",
@@ -207,49 +208,25 @@ export default function CreateStory() {
       ),
     });
   };
+  console.log(story);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!story.title || !story.author || !story.content) {
-      alert("Please fill in the title, author, and content fields.");
-      return;
-    }
-
-    // Ensure options is not empty if it's required
-    const storyData = {
-      title: story.title,
-      author: story.author,
-      content: story.content,
-      options:
-        story.options.length > 0
-          ? story.options
-          : [
-              {
-                id: Date.now(),
-                option: "Default Option",
-                content: "",
-                subOptions: [],
-              },
-            ],
-    };
-
-    console.log("Submitting data:", storyData);
+    console.log("Submitting data:", story);
 
     try {
-      const response = await axios.post("/api/stories", storyData);
+      const response = await axios.post("/api/stories", story);
+      console.log("Response:", response.data);
       setStory({
+        id: Date.now(),
         title: "",
         author: "",
         content: "",
         options: [],
       });
-      alert("Story created successfully!");
     } catch (error) {
-      console.error(
-        "Error creating story:",
-        error.response?.data || error.message
-      );
+      console.error("Error creating story:", error);
       alert("Failed to create story.");
     }
   };
@@ -259,7 +236,7 @@ export default function CreateStory() {
       <h1>Create a New Story</h1>
       <form onSubmit={handleSubmit}>
         <div className="story-part mb-4 border rounded p-3">
-          <h5>Story Part</h5>
+          <h5>Story Part {story.id}</h5>
           <div className="row">
             <div className="col-md-6">
               <input
@@ -302,6 +279,7 @@ export default function CreateStory() {
                     handleOptionChange(option.id, "option", e.target.value)
                   }
                   className="form-control mb-2"
+                  required
                 />
                 <textarea
                   placeholder="Content for Option"
@@ -311,6 +289,7 @@ export default function CreateStory() {
                     handleOptionChange(option.id, "content", e.target.value)
                   }
                   className="form-control mb-2"
+                  required
                 />
                 <div className="sub-options">
                   {option.subOptions.map((subOption) => (
@@ -332,6 +311,7 @@ export default function CreateStory() {
                           )
                         }
                         className="form-control mb-2"
+                        required
                       />
                       <textarea
                         placeholder="Content for Sub Option"
@@ -346,6 +326,7 @@ export default function CreateStory() {
                           )
                         }
                         className="form-control mb-2"
+                        required
                       />
                       <div className="sub-sub-options">
                         {subOption.subSubOptions.map((subSubOption) => (
@@ -368,6 +349,7 @@ export default function CreateStory() {
                                 )
                               }
                               className="form-control mb-2"
+                              required
                             />
                             <textarea
                               placeholder="Content for Sub-Sub Option"
@@ -383,6 +365,7 @@ export default function CreateStory() {
                                 )
                               }
                               className="form-control mb-2"
+                              required
                             />
                             <button
                               type="button"

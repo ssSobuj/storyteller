@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useAuth } from "./hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
-  const { user, logoutUser } = useAuth();
+  const { isLoggedIn, user, logoutUser } = useAuth();
   const router = useRouter();
   const handleLogout = async () => {
     logoutUser();
@@ -16,13 +16,18 @@ function Navbar() {
   return (
     <div className="navbar">
       <nav className="navbar-wrapper">
-        <Link className="navbar__logo" href="/">
+        <a className="navbar__logo" href="#home">
           <img src="/images/logo/logo.png" alt="Logo" />
-        </Link>
+        </a>
         <div className="navbar__list" id="navbarNav">
           <ul className="navbar__nav">
             <li className="navbar__item">
               <Link className="navbar__link" href="/">
+                Home
+              </Link>
+            </li>
+            <li className="navbar__item">
+              <Link className="navbar__link" href="/story/slug">
                 Story
               </Link>
             </li>
