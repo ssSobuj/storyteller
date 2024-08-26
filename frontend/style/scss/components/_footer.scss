@@ -1,0 +1,24 @@
+.footer {
+  background-color: $bg-dark;
+  color: $text-white;
+  padding-inline: 150px;
+  text-align: center;
+
+  &__links {
+    margin-bottom: 10px;
+
+    .footer__link {
+      color: $text-white;
+      margin: 0 10px;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__copy {
+    font-size: 0.9rem;
+    color: $text-muted;
+  }
+}

@@ -1,0 +1,48 @@
+.story-part {
+  .option,
+  .sub-option {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    position: relative;
+    width: 50%; // Ensures each option takes up half the width of its parent
+
+    // Adjustments based on nesting level
+    &.level-1 {
+      margin-left: 0;
+    }
+    &.level-2 {
+      margin-left: 2rem;
+    }
+    &.level-3 {
+      margin-left: 4rem;
+    }
+    &.level-4 {
+      margin-left: 6rem;
+    }
+    &.level-5 {
+      margin-left: 8rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .options-container,
+  .sub-options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,77 @@
+.story-viewer {
+  background-color: #f8f9fa;
+  padding-inline: 150px;
+  padding-block: 50px;
+  border-radius: 8px;
+  margin: 0 auto;
+
+  .story-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .story-author {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #6c757d;
+  }
+
+  .story-content {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .options {
+    display: flex;
+    gap: 10px;
+
+    .option-button {
+      font-size: 1rem;
+      text-align: left;
+      padding: 10px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease-in-out;
+
+      &.btn-secondary {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      &.btn-tertiary {
+        background-color: #adb5bd;
+        color: white;
+      }
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .selected-option,
+  .selected-sub-option,
+  .selected-sub-sub-option {
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #007bff;
+
+    .option-content,
+    .sub-option-content,
+    .sub-sub-option-content {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      width: 48%;
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+}

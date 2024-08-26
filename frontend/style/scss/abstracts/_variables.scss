@@ -1,0 +1,41 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+//*-----------------------------------
+//*** Custom variables for this template
+//*-----------------------------------
+
+//===================== Brand 1 variables start===================== //
+// theme colors
+$primary-color: #00712d;
+$secondary-color: #ff9100;
+// $primary-color: #b51b75;
+// $secondary-color: #640d6b;
+$bg-color: #fffbe6;
+$bg-color2: #f8d082;
+$bg-color2-light: #f0ebe0;
+$bg-light: #edf5f1;
+
+// text colors
+$text-color: #1b6ae3;
+$title-color: #1b6ae3;
+$text-white: white;
+$bg-dark: #0000;
+//===================== Brand 1 variables  end===================== //
+
+//===================== Common Variables =====================//
+
+$body-color: #344054;
+$body-color-dark: #8d85b3;
+
+$error: #f04438;
+$warning: #f79009;
+$success: #12b76a;
+$danger: #ff0000;
+$white: white;
+$primary: #00712d;
+//Template Font family
+
+$title-font: var(--font-inter), var(--font-noto_sans), sans-serif;
+$text-font: var(--font-inter), var(--font-noto_sans), sans-serif;

@@ -1,0 +1,49 @@
+/**
+ * Basic typography style for copy text
+ */
+
+body {
+  color: $body-color;
+  font-size: 1rem;
+  line-height: 1.625;
+  font-family: $text-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $title-font;
+  line-height: 1.25;
+  font-weight: 700;
+  a {
+    color: inherit;
+    font-family: inherit;
+  }
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $body-color;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  @extend %list-none;
+  @extend %ps-0;
+  @extend %mb-0;
+  padding-left: 0;
+}

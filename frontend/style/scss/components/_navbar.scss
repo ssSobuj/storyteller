@@ -1,0 +1,41 @@
+.navbar {
+  @extend %d-flex;
+  padding-inline: 150px;
+  background-color: $bg-color;
+
+  .navbar-wrapper {
+    @extend %d-flex;
+    @extend %justify-between;
+    @extend %align-i-center;
+    width: 100%;
+    padding-block: 20px;
+  }
+
+  .navbar__logo {
+    width: 150px;
+  }
+
+  .navbar__list {
+    @extend %d-flex;
+    @extend %justify-between;
+    @extend %align-i-center;
+  }
+
+  .navbar__nav {
+    @extend %d-flex;
+    list-style: none;
+  }
+
+  .navbar__item {
+    margin-inline: 15px;
+  }
+
+  .navbar__link {
+    text-decoration: none;
+    color: $primary-color;
+    @extend %text-capitalize;
+  }
+  .navbar__get-started {
+    margin-inline-start: 50px;
+  }
+}

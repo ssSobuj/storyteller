@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@import "bootstrap";
+
+// 1. Configuration and helpers
+@import "abstracts/extends", "abstracts/variables", "abstracts/functions",
+  "abstracts/mixins";
+
+// 2. Base stuff
+@import "base/fonts", "base/typography", "base/animations", "base/common",
+  "base/helpers";
+
+// 3. Layout-related sections
+@import "layout/header", "layout/footer";
+
+// 4. Components
+@import "components/navbar", "components/button", "components/stories",
+  "components/footer", "components/story-details", "components/create-story";
+
+// 5. Themes
+@import "themes/theme";
